@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="container">
+    <!-- <h3>{{ user.profile.username }}</h3>
+    <h3>{{ user.first_name }} {{ user.last_name }}</h3> -->
+    <form class="u_form" method="POST" action="{% url 'profile' %}">
+      {% csrf_token %}
+      {{ u_form|crispy }}
+      <button name="action" value="u_form" type="submit">Update</button>
+    </form>
+    <form class="p_form" method="POST" action="{% url 'profile' %}">
+      {% csrf_token %}
+      {{ p_form|crispy }}
+      <button name="action" value="p_form" type="submit">Update</button>
+    </form>
+    <!-- <table>
+      <tr>
+        <th>Fakultet:</th>
+        <td>{{ user.profile.faculty}}</td>
+      </tr>
+      <tr>
+        <th>Kafedra:</th>
+        <td>{{ user.profile.cafedra}}</td>
+      </tr>
+      <tr>
+        <th>Ilmiy daraja va unvon:</th>
+        <td>{{ user.profile.level}}</td>
+      </tr>
+      <tr>
+        <th>E-pochta:</th>
+        <td>{{ user.email}}</td>
+      </tr>
+    </table> -->
+    <hr>
+    <h1 style="padding:15px;">Qo'shimcha ma'lumotlar</h1>
+    <hr>
+    <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+      <!-- <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="margin-bottom mb-auto">Profile Info!</legend>
+              {{ u_form|crispy }}
+              {{ p_form|crispy }}
+          </fieldset>
+          <button type="submit">Update Profile</button>
+      </form> -->
+  </div>
+{% endblock %}

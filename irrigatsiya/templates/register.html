@@ -1,0 +1,25 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Register</h4>
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="mb-auto">Register</legend>
+            {{ form|crispy }}
+            <!-- <input name="username" value="" type="text">
+            <input type="email" value="" name="email">
+            <input type="password" value="" name="password">
+            <input type="password" value="" name="password2"> -->
+            <button class="btn btn-outline-info" type="submit">Sign Up</button>
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<table>    
+    {% for article in articles %}
+        <tr>
+            <td>number</td>
+            {% if article.article %}
+            <td><a href='{{ article.article.url }}' download>{{ article.article}}</a></td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            {% if article.link %}
+            <td><a href="{{ article.link }}">Havola</a></td>
+            {% endif %}
+            <td><a href="{% url 'article_update' article.slug %}">Update</a></td>
+            <td>{{ article.slug }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
