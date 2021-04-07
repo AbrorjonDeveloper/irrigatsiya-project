@@ -6,6 +6,7 @@ class CategoryAdmin(admin.ModelAdmin):
     # pass
 class ArticlesAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('name',)}
+    list_display = ('name', 'author', 'category', 'article')
     
 admin.site.register(Category, CategoryAdmin)
 
